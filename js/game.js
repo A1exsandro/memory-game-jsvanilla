@@ -3,13 +3,13 @@ const spanPlayer = document.querySelector('.player');
 const timer = document.querySelector('.timer');
 
 const characters = [
-  'First',
+  'Water',
   'Love',
   'You',
   'Word',
   'World',
   'Work',
-  'white',
+  'White',
   'Write',
   'Friend',
   'Girl'
@@ -80,7 +80,7 @@ const createCard = (character) => {
   front.append(character);
 
   //Possibilidade de imagens como background
-  //front.style.backgroundImage = `url('../images/${character}.png')`;
+  front.style.backgroundImage = `url('../images/${character}.png')`;
 
   card.appendChild(front);
   card.appendChild(back);
