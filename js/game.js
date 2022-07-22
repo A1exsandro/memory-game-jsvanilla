@@ -54,7 +54,6 @@ const checkCards = () => {
       secondCard = '';
     }, 500);
   }
-
 }
 
 const revealCard = ({ target }) => {
@@ -79,6 +78,9 @@ const createCard = (character) => {
   const back = createElement('div', 'face back');
 
   front.append(character);
+
+  //Possibilidade de imagens como background
+  //front.style.backgroundImage = `url('../images/${character}.png')`;
 
   card.appendChild(front);
   card.appendChild(back);
