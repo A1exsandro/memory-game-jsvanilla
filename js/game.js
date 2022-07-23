@@ -2,6 +2,22 @@ const grid = document.querySelector('.grid');
 const spanPlayer = document.querySelector('.player');
 const timer = document.querySelector('.timer');
 
+const api = fetch('http://localhost:3000/words.json')
+            .then(response => response.json())
+            .then(data => {
+              const words = data;
+              return words.map(word => word.newWord)
+            })
+console.log(api)
+
+// async function fetchWords(url){
+//   const response = await fetch(url);
+//   const data = await response.json();
+//   return data;
+// }
+// const req = fetchWords('http://localhost:3000/words.json');
+
+
 const characters = [
   'Water',
   'Love',
