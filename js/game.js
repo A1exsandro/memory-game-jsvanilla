@@ -120,15 +120,15 @@ const loadGame = () => {
   });
 }
 
-const startTimer = () => {
-  this.loop = setInterval(() => {
-    const currentTime = +timer.innerHTML;
-    timer.innerHTML = currentTime + 1;
-  }, 1000);
-}
+// const startTimer = () => {
+//   this.loop = setInterval(() => {
+//     const currentTime = +timer.innerHTML;
+//     timer.innerHTML = currentTime + 1;
+//   }, 1000);
+// }
 
 window.onload = () => {
   spanPlayer.innerHTML = localStorage.getItem('player');
-  startTimer();
+  //startTimer();
   loadGame();
 }
