@@ -4,11 +4,15 @@ const timer = document.querySelector('.timer');
 
 const api = fetch('http://localhost:3000/words.json')
             .then(response => response.json())
-            .then(data => {
-              const words = data;
-              return words.map(word => word.newWord)
+            .then(words => { 
+              // console.log(words[0].id)
+              words.map(word => {
+                const characters = word.newWord;
+                console.log(characters)
+              })
             })
-console.log(api)
+            
+
 
 // async function fetchWords(url){
 //   const response = await fetch(url);
@@ -16,7 +20,6 @@ console.log(api)
 //   return data;
 // }
 // const req = fetchWords('http://localhost:3000/words.json');
-
 
 const characters = [
   'Water',
@@ -35,6 +38,25 @@ const createElement = (tag, className) => {
   const element = document.createElement(tag);
   element.className = className;
   return element;
+}
+
+const createCard = (character) => {
+  const card = createElement('div', 'card');
+  const front = createElement('div', 'face front');
+  const back = createElement('div', 'face back');
+
+  front.append(character);
+
+  //Possibilidade de imagens como background
+  front.style.backgroundImage = `url('../images/${character}.png')`;
+
+  card.appendChild(front);
+  card.appendChild(back);
+
+  card.addEventListener('click', revealCard);
+  card.setAttribute('data-character', character)
+
+  return card;
 }
 
 let firstCard = '';
@@ -86,25 +108,6 @@ const revealCard = ({ target }) => {
 
     checkCards();
   }  
-}
-
-const createCard = (character) => {
-  const card = createElement('div', 'card');
-  const front = createElement('div', 'face front');
-  const back = createElement('div', 'face back');
-
-  front.append(character);
-
-  //Possibilidade de imagens como background
-  front.style.backgroundImage = `url('../images/${character}.png')`;
-
-  card.appendChild(front);
-  card.appendChild(back);
-
-  card.addEventListener('click', revealCard);
-  card.setAttribute('data-character', character)
-
-  return card;
 }
 
 const loadGame = () => {
