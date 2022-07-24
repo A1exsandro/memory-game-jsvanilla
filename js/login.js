@@ -1,6 +1,7 @@
 const input = document.querySelector('.login__input');
 const button = document.querySelector('.login__button');
 const form = document.querySelector('.login-form');
+const buttonGallery = document.querySelector('.gallery__button');
 
 const validateInput = ({ target }) => {
   if (target.value.length > 2) {
@@ -16,6 +17,10 @@ const handleSubmit = (event) => {
   
   localStorage.setItem('player', input.value);
   window.location = 'pages/game.html';
+}
+
+const redirectToGallery = () => {
+  window.location = 'pages/gallery.html';
 }
 
 input.addEventListener('input', validateInput);
